@@ -21,12 +21,13 @@
 }
 
 body {
-  background: #6D7074;
+  background: black;
+  background-image: url("https://images6.alphacoders.com/624/624469.jpg");
+
 }
 
 select {
   background-color: black;
-  background-image: url("https://images6.alphacoders.com/624/624469.jpg");
   color: green;
 }
 
@@ -203,13 +204,12 @@ button{
     }
   }
 }
-
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 5px;
+  grid-gap: 10px;
   background-color: black;
-  padding: 5px;
+  padding: 10px;
 }
 .grid-container > div {
   background-color: black;
@@ -219,5 +219,38 @@ button{
 }
 .item1 {
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 5;
+}
+
+.item2 {
+  grid-row-start: 4;
+  grid-row-end: 8;
+}
+
+.item3 {
+  grid-row-start: 1;
+  grid-row-end: 7;
+}
+
+.terminal-jargon {
+  font-size: 10px;
+}
+
+.title-art {
+  font-size: 100px;
+  font-family: 'Obitron', sans-serif;
+  text-align: center;
+}
+
+.quote {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Obitron', sans-serif;
+  font-style: italic;
+}
+
+.btm-border {
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
 }
