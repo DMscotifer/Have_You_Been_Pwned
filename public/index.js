@@ -44,6 +44,3 @@ var populateBreach = function(breachData){
     ul.appendChild(compromisedData3);
   });
 }
-
-
-window.addEventListener('load', app)

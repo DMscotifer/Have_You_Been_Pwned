@@ -26,6 +26,7 @@ body {
 
 select {
   background-color: black;
+  background-image: url("https://images6.alphacoders.com/624/624469.jpg");
   color: green;
 }
 
@@ -201,4 +202,22 @@ button{
       transition: .7s;
     }
   }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 5px;
+  background-color: black;
+  padding: 5px;
+}
+.grid-container > div {
+  background-color: black;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
