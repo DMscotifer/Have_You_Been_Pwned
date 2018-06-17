@@ -1,16 +1,14 @@
 var app = function(){
-  var url = 'https://haveibeenpwned.com/api/v2/breachedaccount/scott_14_@hotmail.co.uk';
+  var query = document.getElementById('email').value;
+  var api = 'https://haveibeenpwned.com/api/v2/breachedaccount/';
+  var url = api + query;
   makeRequest(url, requestComplete);
 }
 
 var makeRequest = function(url, callback){
-  //create a new XMLHttpRequest object
   var request = new XMLHttpRequest();
-  //set the type of request we want with the url we want to call
   request.open("GET", url);
-  //set the callback we want it to use when it has completed the call
   request.addEventListener('load', callback);
-  //send the request!
   request.send();
 }
 
@@ -19,8 +17,33 @@ var requestComplete = function(){
   if(this.status !== 200) return;
   var jsonString = this.responseText;
   console.log(jsonString);
-  var countries = JSON.parse(jsonString);
-  var country = countries[0];
+  var breachData = JSON.parse(jsonString);
+  populateBreach(breachData);
 }
+
+var populateBreach = function(breachData){
+  console.log(breachData);
+
+  var ul = document.getElementById('list-of-breaches');
+
+  breachData.forEach(function(breach){
+    var titleLi = document.createElement('li');
+    var descriptionLi = document.createElement('li');
+    var compromisedData1 = document.createElement('li');
+    var compromisedData2 = document.createElement('li');
+    var compromisedData3 = document.createElement('li');
+    titleLi.innerText = breach.Title;
+    descriptionLi.innerText = breach.Description;
+    compromisedData1.innerText = breach.DataClasses[0];
+    compromisedData2.innerText = breach.DataClasses[1];
+    compromisedData3.innerText = breach.DataClasses[2];
+    ul.appendChild(titleLi);
+    ul.appendChild(descriptionLi);
+    ul.appendChild(compromisedData1);
+    ul.appendChild(compromisedData2);
+    ul.appendChild(compromisedData3);
+  });
+}
+
 
 window.addEventListener('load', app)
